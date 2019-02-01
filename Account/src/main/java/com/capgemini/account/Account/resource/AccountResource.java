@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.listener.exception.ListenerExecutionFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,7 @@ public class AccountResource {
 	
 	
 	@RabbitListener(queues = "updateBalance")
-	public void update(Account account) {
+	public void update(Account account) throws ListenerExecutionFailedException{
 		Account account1 = service.findById(account.getAccountNumber()).get();
 		account1.setCurrentBalance(account.getCurrentBalance());
 		service.update(account1);
@@ -48,10 +49,5 @@ public class AccountResource {
 		return currentBalance;
 	}
 
-
-	public void update(Integer accountNumber, Double currentBalance) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

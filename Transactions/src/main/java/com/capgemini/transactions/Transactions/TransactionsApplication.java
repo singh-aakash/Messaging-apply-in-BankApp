@@ -27,6 +27,7 @@ public class TransactionsApplication {
 
 	
 	  @Bean
+	  @LoadBalanced
 	public CommandLineRunner loadinitialdata(TransactionRepository repository) {
 		return (arg) -> {
 			repository.save(new Transaction(101,5000.0, TransactionType.DEPOSIT,"ATM"));

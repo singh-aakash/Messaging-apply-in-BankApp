@@ -8,7 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Transaction {
+public class Transaction  {
+	/**
+	 * 
+	 */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)//Auto Generation of PK
 	private Integer transactionId;

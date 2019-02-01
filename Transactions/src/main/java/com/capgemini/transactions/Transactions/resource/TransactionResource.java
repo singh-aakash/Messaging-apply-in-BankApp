@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.capgemini.account.Account.entity.Account;
 import com.capgemini.transactions.Transactions.Entity.Transaction;
-import com.capgemini.transactions.Transactions.account.Account;
 import com.capgemini.transactions.Transactions.sender.Sender;
 import com.capgemini.transactions.Transactions.service.TransactionService;
 
